@@ -33,22 +33,25 @@ soup = bs(html, 'html.parser')
 
 # %%
 # Examine the results, then determine element that contains sought info
-print(soup.body.prettify())
+# print(soup.body.prettify())
 
 
 # %%
 # Find the PARENT DIV and print title
 Title = soup.find_all('div', class_='list_text')[
     0].find('div', class_='content_title').text
-Title
+print('**************************************')
+print('Title')
+print(Title)
 
 
 # %%
 # print latest news Paragraph
 Article = soup.find_all('div', class_='list_text')[0].find(
     'div', class_='article_teaser_body').text
-Article
-
+print('**************************************')
+print('Article')
+print(Article)
 
 # %%
 
@@ -64,14 +67,15 @@ soup1 = bs(html1, 'html.parser')
 
 
 # %%
-print(soup1.body.prettify())
+# print(soup1.body.prettify())
 
 
 # %%
 featured_image_url = soup1.find("div", class_="header").find(
     "div", class_="floating_text_area").a.get("href")
-featured_image_url
-
+print('**************************************')
+print('featured_image_url')
+print(featured_image_url)
 
 # %%
 
@@ -82,8 +86,9 @@ url2 = "https://galaxyfacts-mars.com/"
 
 # %%
 tables = pd.read_html(url2)
-tables
-
+print('**************************************')
+print('tables')
+print(tables)
 
 # %%
 df = tables[0]
@@ -92,14 +97,15 @@ df.head()
 
 # %%
 html_table = df.to_html()
-html_table
+print('**************************************')
+print('html_table')
+print(html_table)
+
+# %%
 
 
 # %%
-
-
-# %%
-url3 = "https://marshemispheres.com/cerberus.html"
+url3 = "https://marshemispheres.com/"
 
 
 # %%
@@ -113,31 +119,37 @@ soup2 = bs(html2, 'html.parser')
 
 # %%
 
-print(soup2.body.prettify())
+# print(soup2.body.prettify())
 
 
 # %%
-# hemisphere_image_urls = []
+hemisphere_image_urls = []
 
 
 # %%
-# image2 = soup2.find('div', class_='collapsible results').find(
-#     'div', class_='item').a.get('href')
-# title = soup2.find('div', class_='cover').find('h2', class_='title').text
-# image2
 
 
 # %%
-# for x in range(1):
 
-#     html2 = browser.html
-#     soup2 = bs(html2, 'html.parser')
-#     start = soup2.find('div', class_='item')
-#     image = soup2.find(
-#         'div', class_='wide-image-wrapper').find('div', class_='downloads').a.get('href')
-#     title = soup2.find('div', class_='cover').find('h2', class_='title').text
-#     diction = {"title": title, "img_url": image}
-#     hemisphere_image_urls.append(diction)
+html2 = browser.html
+soup2 = bs(html2, 'html.parser')
+
+images = soup2.find_all(
+    'div', class_='item')
+print(images)
+for item in images:
+    print(item.img.get('src'))
+    print(
+        item.div.a.h3.text
+
+    )
+    hemisphere_image_urls.append({
+        'img_url': item.img.get('src'),
+        'title': item.div.a.h3.text
+    })
+print(hemisphere_image_urls)
+exit(0)
+
 
 
 # %%
