@@ -117,44 +117,44 @@ print(soup2.body.prettify())
 
 
 # %%
-hemisphere_image_urls = []
+# hemisphere_image_urls = []
 
 
 # %%
-image2 = soup2.find('div', class_='collapsible results').find(
-    'div', class_='item').a.get('href')
-title = soup2.find('div', class_='cover').find('h2', class_='title').text
-image2
+# image2 = soup2.find('div', class_='collapsible results').find(
+#     'div', class_='item').a.get('href')
+# title = soup2.find('div', class_='cover').find('h2', class_='title').text
+# image2
 
 
 # %%
-for x in range(1):
+# for x in range(1):
 
-    html2 = browser.html
-    soup2 = bs(html2, 'html.parser')
-    start = soup2.find('div', class_='item')
-    image = soup2.find(
-        'div', class_='wide-image-wrapper').find('div', class_='downloads').a.get('href')
-    title = soup2.find('div', class_='cover').find('h2', class_='title').text
-    diction = {"title": title, "img_url": image}
-    hemisphere_image_urls.append(diction)
-
-
-# %%
-hemisphere_image_urls
+#     html2 = browser.html
+#     soup2 = bs(html2, 'html.parser')
+#     start = soup2.find('div', class_='item')
+#     image = soup2.find(
+#         'div', class_='wide-image-wrapper').find('div', class_='downloads').a.get('href')
+#     title = soup2.find('div', class_='cover').find('h2', class_='title').text
+#     diction = {"title": title, "img_url": image}
+#     hemisphere_image_urls.append(diction)
 
 
 # %%
-hemisphere_image_urls = [,
-                         {"title": "Cerberus Hemisphere Enhanced",
-                             "img_url": "https://marshemispheres.com/images/full.jpg"},
-                         {"title": "Schiaparelli Hemisphere Enhanced",
-                          "img_url": "https://marshemispheres.com/images/schiaparelli_enhanced-full.jpg"}
-                         {"title": "Syrtis Major Hemisphere Enhanced",
-                          "img_url": "https://marshemispheres.com/images/syrtis_major_enhanced-full.jpg"},
-                         {"title": "Valles Marineris Hemisphere Enhanced",
-                          "img_url": "https://marshemispheres.com/images/valles_marineris_enhanced-full.jpg"}
-                         ]
+# hemisphere_image_urls
+
+
+# %%
+hemisphere_image_urls = [
+    {"title": "Cerberus Hemisphere Enhanced",
+     "img_url": "https://marshemispheres.com/images/full.jpg"},
+    {"title": "Schiaparelli Hemisphere Enhanced",
+     "img_url": "https://marshemispheres.com/images/schiaparelli_enhanced-full.jpg"},
+    {"title": "Syrtis Major Hemisphere Enhanced",
+     "img_url": "https://marshemispheres.com/images/syrtis_major_enhanced-full.jpg"},
+    {"title": "Valles Marineris Hemisphere Enhanced",
+     "img_url": "https://marshemispheres.com/images/valles_marineris_enhanced-full.jpg"}
+]
 
 
 # %%
